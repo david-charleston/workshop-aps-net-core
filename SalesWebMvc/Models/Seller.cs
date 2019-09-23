@@ -12,6 +12,8 @@ namespace SalesWebMvc.Models
         public DateTime BirthDate { get; set; }
         public double BaseSalary { get; set; }
         public Department Department { get; set; }
+        // Esta propriedade informa que o Id do Department não deve ser nulo
+        public int DepartmentId { get; set; }
         public ICollection<SalesRecords> SalesRecords { get; set; } = new List<SalesRecords>();
 
         public Seller()
