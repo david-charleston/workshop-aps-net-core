@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 
 namespace SalesWebMvc.Models
@@ -8,8 +9,15 @@ namespace SalesWebMvc.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        [Display(Name = "E-mail")]
+        [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
+        // Define como vai aparecer na View
+        [Display(Name = "Birth Date")]
+        [DataType(DataType.Date)]
         public DateTime BirthDate { get; set; }
+        [Display(Name = "Base Salary")]
+        [DisplayFormat(DataFormatString = "{0:c2}")]
         public double BaseSalary { get; set; }
         public Department Department { get; set; }
         // Esta propriedade informa que o Id do Department não deve ser nulo
