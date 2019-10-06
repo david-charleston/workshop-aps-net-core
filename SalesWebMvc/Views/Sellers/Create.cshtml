@@ -1,4 +1,4 @@
-﻿@model SalesWebMvc.Models.Seller
+﻿@model SalesWebMvc.Models.ModelsView.SellerFormModelView
 @{
     ViewData["Title"] = "Create";
 }
@@ -14,20 +14,28 @@
                 <!--Define qual é o label que vai aparecer
                     de acordo com o objeto que está associado 
                     a View-->
-                <label asp-for="Name"></label>
-                <input asp-for="Name" class="form-control" />
+                <label asp-for="Seller.Name"></label>
+                <input asp-for="Seller.Name" class="form-control" />
             </div>
             <div class="form-group">
-                <label asp-for="Email"></label>
-                <input asp-for="Email" class="form-control"/>
+                <label asp-for="Seller.Email"></label>
+                <input asp-for="Seller.Email" class="form-control"/>
             </div>
             <div class="form-group">
-                <label asp-for="BirthDate"></label>
-                <input asp-for="BirthDate" class="form-control"/>
+                <label asp-for="Seller.BirthDate"></label>
+                <input asp-for="Seller.BirthDate" class="form-control"/>
             </div>
             <div class="form-group">
-                <label asp-for="BaseSalary"></label>
-                <input asp-for="BaseSalary" class="form-control"/>
+                <label asp-for="Seller.BaseSalary"></label>
+                <input asp-for="Seller.BaseSalary" class="form-control"/>
+            </div>
+            <div class="form-group">
+                <label asp-for="Seller.DepartmentId"></label>
+                <!--O asp-items constrói a lista de acordo com o modelo que foi passado como parâmetro
+                    Primeiro parâmetro é a fonte de dados
+                    Segundo parâmetro é o código de cada elemento da fonte de dados
+                    Terceiro parâmetro é o valor que vai aparecer na lista-->
+                <select asp-for="Seller.DepartmentId" asp-items="@(new SelectList(Model.Departments, "Id", "Name"))" class="form-control"></select>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary"/>
